@@ -16,44 +16,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="랜덤 색상" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bU9-07-Qyv">
-                                <rect key="frame" x="24" y="68" width="366" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="명언 생성기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUk-r7-cRs">
+                                <rect key="frame" x="24" y="68" width="366" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pe-6l-DN1">
-                                <rect key="frame" x="20" y="117" width="374" height="200"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVe-G6-17I">
+                                <rect key="frame" x="24" y="113" width="366" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBd-If-FAV">
+                                        <rect key="frame" x="24" y="24" width="318" height="128"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al4-qD-qR6">
+                                        <rect key="frame" x="24" y="176" width="318" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="WpG-QA-wCJ"/>
+                                    <constraint firstItem="uBd-If-FAV" firstAttribute="top" secondItem="mVe-G6-17I" secondAttribute="top" constant="24" id="2vL-gn-bpa"/>
+                                    <constraint firstItem="al4-qD-qR6" firstAttribute="leading" secondItem="mVe-G6-17I" secondAttribute="leading" constant="24" id="66u-uW-jB5"/>
+                                    <constraint firstItem="uBd-If-FAV" firstAttribute="leading" secondItem="mVe-G6-17I" secondAttribute="leading" constant="24" id="DiU-lR-uxi"/>
+                                    <constraint firstAttribute="bottom" secondItem="al4-qD-qR6" secondAttribute="bottom" constant="24" id="HOX-Sa-umb"/>
+                                    <constraint firstAttribute="trailing" secondItem="al4-qD-qR6" secondAttribute="trailing" constant="24" id="KLX-GN-Rr7"/>
+                                    <constraint firstAttribute="trailing" secondItem="uBd-If-FAV" secondAttribute="trailing" constant="24" id="dkL-KQ-wha"/>
+                                    <constraint firstItem="al4-qD-qR6" firstAttribute="top" secondItem="uBd-If-FAV" secondAttribute="bottom" constant="24" id="g2X-lc-6Ph"/>
+                                    <constraint firstAttribute="height" constant="200" id="kbC-aR-46g"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywX-dL-kRN">
-                                <rect key="frame" x="168.5" y="341" width="77" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tl6-Jc-Lw2">
+                                <rect key="frame" x="169" y="337" width="76.5" height="31"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="색상 변경"/>
-                                <connections>
-                                    <action selector="tapChangeColorBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Luo-JM-fyy"/>
-                                </connections>
+                                <buttonConfiguration key="configuration" style="plain" title="명언 생성"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bU9-07-Qyv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="9SF-tL-wTU"/>
-                            <constraint firstItem="4pe-6l-DN1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="MLn-bT-tdX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bU9-07-Qyv" secondAttribute="trailing" constant="24" id="VKy-gh-1Zx"/>
-                            <constraint firstItem="bU9-07-Qyv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="WoX-c4-GTA"/>
-                            <constraint firstItem="ywX-dL-kRN" firstAttribute="centerX" secondItem="4pe-6l-DN1" secondAttribute="centerX" id="Xnw-zw-575"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4pe-6l-DN1" secondAttribute="trailing" constant="20" id="juy-0M-9FX"/>
-                            <constraint firstItem="4pe-6l-DN1" firstAttribute="top" secondItem="bU9-07-Qyv" secondAttribute="bottom" constant="20" id="rOV-AT-ajN"/>
-                            <constraint firstItem="ywX-dL-kRN" firstAttribute="top" secondItem="4pe-6l-DN1" secondAttribute="bottom" constant="24" id="xtU-cA-f69"/>
+                            <constraint firstItem="wUk-r7-cRs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="DPU-pP-AUY"/>
+                            <constraint firstItem="mVe-G6-17I" firstAttribute="top" secondItem="wUk-r7-cRs" secondAttribute="bottom" constant="24" id="EEO-YI-Vam"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mVe-G6-17I" secondAttribute="trailing" constant="24" id="F1d-ca-sVo"/>
+                            <constraint firstItem="tl6-Jc-Lw2" firstAttribute="top" secondItem="mVe-G6-17I" secondAttribute="bottom" constant="24" id="KfT-ir-Iro"/>
+                            <constraint firstItem="mVe-G6-17I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Yxw-Vf-ZAa"/>
+                            <constraint firstItem="tl6-Jc-Lw2" firstAttribute="centerX" secondItem="mVe-G6-17I" secondAttribute="centerX" id="hoU-zG-3fX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wUk-r7-cRs" secondAttribute="trailing" constant="24" id="uJw-U7-XMd"/>
+                            <constraint firstItem="wUk-r7-cRs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="wqj-Sq-HUK"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="colorView" destination="4pe-6l-DN1" id="Bzk-9I-Oaj"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,9 +79,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

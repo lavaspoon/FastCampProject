@@ -8,16 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var colorView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-
-    @IBAction func tapChangeColorBtn(_ sender: UIButton) {
-        print("ViewController-tapChangeColorBtn clicked")
-        self.colorView.backgroundColor = UIColor.blue
     }
     
 }
