@@ -8,10 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var quoteLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func tapQuoteCreateBtn(_ sender: UIButton) {
+        print("UIViewController-tapQuoteCreateBtn")
     }
     
 }
