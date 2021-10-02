@@ -10,7 +10,25 @@ import UIKit
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("ViewController 뷰가 로드됨")
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("ViewController 뷰가 나타날 것이다.")
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("ViewController 뷰가 나타남")
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("ViewController 뷰가 사라질 것이다.")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("ViewController 뷰가 사라짐")
+    }
+    
     //code로 푸쉬
     @IBAction func codePusbBtn(_ sender: UIButton) {
         //스토리보드의 뷰컨트롤러 인스턴스화
