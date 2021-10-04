@@ -17,6 +17,7 @@ class CodePushViewController: UIViewController {
         //옵셔널이기 떄문에 옵셔널 바인딩
         if let name = name {
             self.nameLabel.text = name
+            self.nameLabel.sizeToFit()
         }
         
     }
