@@ -50,6 +50,13 @@ class ViewController: UIViewController, SendDataDelegate {
         self.present(viewController, animated: true, completion: nil)
     }
     
+    //prepare 메소드는 오버라이드 하면 세그웨이를 실행하기 직전에 자동으로 호출함
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? SuguePushViewController {
+            viewController.name = "lavaspoon"
+        }
+    }
+    //SendDataDelegate 프로토콜을 채택했기떄문에 함수 선언
     func sendData(name: String) {
         self.nameLabel.text = name
         self.nameLabel.sizeToFit()
