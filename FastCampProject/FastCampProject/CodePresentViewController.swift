@@ -9,6 +9,9 @@ import UIKit
 
 class CodePresentViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    var name : String?
+    //ViewController.swift에서 name 프로퍼티에 접근하기 위해서는 뷰컨트롤러에서 다운캐스팅 해야함
     override func viewDidLoad() {
         super.viewDidLoad()
 
