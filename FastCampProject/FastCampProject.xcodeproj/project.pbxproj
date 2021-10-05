@@ -16,10 +16,6 @@
 		9E6873932702E456002711CF /* FastCampProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6873922702E456002711CF /* FastCampProjectTests.swift */; };
 		9E68739D2702E456002711CF /* FastCampProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68739C2702E456002711CF /* FastCampProjectUITests.swift */; };
 		9E68739F2702E456002711CF /* FastCampProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68739E2702E456002711CF /* FastCampProjectUITestsLaunchTests.swift */; };
-		9E6873AF27074E3A002711CF /* SuguePushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6873AE27074E3A002711CF /* SuguePushViewController.swift */; };
-		9E6873B127075028002711CF /* SuguePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6873B027075028002711CF /* SuguePresentViewController.swift */; };
-		9E6873B327075133002711CF /* CodePushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6873B227075133002711CF /* CodePushViewController.swift */; };
-		9E6873B527080E6E002711CF /* CodePresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6873B427080E6E002711CF /* CodePresentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +49,6 @@
 		9E6873982702E456002711CF /* FastCampProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastCampProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E68739C2702E456002711CF /* FastCampProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastCampProjectUITests.swift; sourceTree = "<group>"; };
 		9E68739E2702E456002711CF /* FastCampProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastCampProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9E6873AE27074E3A002711CF /* SuguePushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuguePushViewController.swift; sourceTree = "<group>"; };
-		9E6873B027075028002711CF /* SuguePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuguePresentViewController.swift; sourceTree = "<group>"; };
-		9E6873B227075133002711CF /* CodePushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePushViewController.swift; sourceTree = "<group>"; };
-		9E6873B427080E6E002711CF /* CodePresentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePresentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,14 +99,9 @@
 		9E68737A2702E450002711CF /* FastCampProject */ = {
 			isa = PBXGroup;
 			children = (
-				9E6873AB2704C485002711CF /* Model */,
 				9E68737B2702E450002711CF /* AppDelegate.swift */,
 				9E68737D2702E450002711CF /* SceneDelegate.swift */,
 				9E68737F2702E450002711CF /* ViewController.swift */,
-				9E6873AE27074E3A002711CF /* SuguePushViewController.swift */,
-				9E6873B027075028002711CF /* SuguePresentViewController.swift */,
-				9E6873B227075133002711CF /* CodePushViewController.swift */,
-				9E6873B427080E6E002711CF /* CodePresentViewController.swift */,
 				9E6873812702E450002711CF /* Main.storyboard */,
 				9E6873842702E456002711CF /* Assets.xcassets */,
 				9E6873862702E456002711CF /* LaunchScreen.storyboard */,
@@ -138,13 +125,6 @@
 				9E68739E2702E456002711CF /* FastCampProjectUITestsLaunchTests.swift */,
 			);
 			path = FastCampProjectUITests;
-			sourceTree = "<group>";
-		};
-		9E6873AB2704C485002711CF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,11 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E6873B127075028002711CF /* SuguePresentViewController.swift in Sources */,
-				9E6873B327075133002711CF /* CodePushViewController.swift in Sources */,
-				9E6873AF27074E3A002711CF /* SuguePushViewController.swift in Sources */,
 				9E6873802702E450002711CF /* ViewController.swift in Sources */,
-				9E6873B527080E6E002711CF /* CodePresentViewController.swift in Sources */,
 				9E68737C2702E450002711CF /* AppDelegate.swift in Sources */,
 				9E68737E2702E450002711CF /* SceneDelegate.swift in Sources */,
 			);
