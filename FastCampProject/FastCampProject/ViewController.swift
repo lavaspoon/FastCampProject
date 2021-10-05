@@ -19,6 +19,9 @@ class ViewController: UIViewController, LEDSettingDelegate{
         if let settingViewController = segue.destination as? SettingViewController {
             //delegate 위임
             settingViewController.delegate = self
+            settingViewController.ledText = self.contentsLabel.text
+            settingViewController.textColor = self.contentsLabel.textColor
+            settingViewController.backgroundColor = self.view.backgroundColor ?? .black
         }
     }
     

@@ -20,11 +20,21 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var blueBtn: UIButton!
     @IBOutlet weak var purpleBtn: UIButton!
     weak var delegate : LEDSettingDelegate?
+    var ledText : String?
     var textColor : UIColor = .yellow
     var backgroundColor : UIColor = .black
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureView()
+    }
+    
+    private func configureView(){
+        if let ledText = self.ledText {
+            self.textField.text = ledText
+        }
+        self.changeTextColor(color: self.textColor)
+        self.changeBackGroundColor(color: self.backgroundColor)
     }
     @IBAction func tapTextColorBtn(_ sender: UIButton) {
         if sender == self.yellowBtn {
