@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, LEDSettingDelegate{
     
+    @IBOutlet weak var NickNameLabel: UILabel!
     @IBOutlet weak var contentsLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,9 @@ class ViewController: UIViewController, LEDSettingDelegate{
             settingViewController.ledText = self.contentsLabel.text
             settingViewController.textColor = self.contentsLabel.textColor
             settingViewController.backgroundColor = self.view.backgroundColor ?? .black
+        }
+        if let testViewController = segue.destination as? TestViewController {
+            testViewController.firstText = self.NickNameLabel.text
         }
     }
     //4) 값을 받기위해 반드시 선언해줘야 함

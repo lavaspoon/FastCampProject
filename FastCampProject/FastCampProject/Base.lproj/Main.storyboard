@@ -39,15 +39,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xsJ-96-8bh">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="2KM-xD-VfA">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="2Q5-oU-CK0">
-                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Test"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Test" id="ViF-HG-f1h">
                             <connections>
-                                <segue destination="APZ-jN-fGj" kind="show" id="Ktg-D8-npK"/>
+                                <segue destination="APZ-jN-fGj" kind="show" id="065-eY-pf3"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="설정" id="VMU-VG-Grb">
@@ -57,6 +51,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="NickNameLabel" destination="nNn-Li-kp4" id="RBN-06-36f"/>
                         <outlet property="contentsLabel" destination="ko9-sF-CiG" id="5X0-Md-wAm"/>
                     </connections>
                 </viewController>
@@ -226,11 +221,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMF-6V-R4c">
-                                <rect key="frame" x="182" y="196" width="50" height="30"/>
+                                <rect key="frame" x="167" y="196" width="80" height="40"/>
                                 <color key="backgroundColor" red="0.76368538239999995" green="0.77887328600000005" blue="0.96848052740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="czp-jb-9Em"/>
-                                    <constraint firstAttribute="width" constant="50" id="uqw-xM-yTu"/>
+                                    <constraint firstAttribute="height" constant="40" id="czp-jb-9Em"/>
+                                    <constraint firstAttribute="width" constant="80" id="uqw-xM-yTu"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
@@ -249,6 +244,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HPb-3E-zPE"/>
+                    <connections>
+                        <outlet property="NickName" destination="0fw-qh-MQo" id="mks-bF-Zmc"/>
+                        <outlet property="SenderBtn" destination="LMF-6V-R4c" id="xt6-yG-0JI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMa-Zk-zmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
