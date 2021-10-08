@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, LEDSettingDelegate{
+class ViewController: UIViewController, LEDSettingDelegate, senderDelegate{
+
+    
     
     @IBOutlet weak var NickNameLabel: UILabel!
     @IBOutlet weak var contentsLabel: UILabel!
@@ -28,7 +30,9 @@ class ViewController: UIViewController, LEDSettingDelegate{
             settingViewController.backgroundColor = self.view.backgroundColor ?? .black
         }
         if let testViewController = segue.destination as? TestViewController {
-            testViewController.firstText = self.NickNameLabel.text
+            testViewController.firstText = self.NickNameLabel.text // 첫번째 화면 값 test뷰로 전달
+            testViewController.delegate = self
+            print("1) 테스트뷰 델리게이트 위임")
         }
     }
     //4) 값을 받기위해 반드시 선언해줘야 함
@@ -39,6 +43,11 @@ class ViewController: UIViewController, LEDSettingDelegate{
         }
         self.contentsLabel.textColor = textColor
         self.view.backgroundColor = backgroundColor
+    }
+    
+    func changeText(text: String?) {
+        print("2) 테스트뷰에서 값 전달받음")
+        self.NickNameLabel.text = text
     }
 
 }
