@@ -22,15 +22,31 @@
                                 <color key="textColor" red="1" green="0.90429096939999998" blue="0.80230017040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNn-Li-kp4">
+                                <rect key="frame" x="157.5" y="112" width="99" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <color key="textColor" systemColor="systemPurpleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="nNn-Li-kp4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GR2-QN-M7e"/>
                             <constraint firstItem="ko9-sF-CiG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="STb-GB-2qv"/>
+                            <constraint firstItem="nNn-Li-kp4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="WdM-aG-6pz"/>
                             <constraint firstItem="ko9-sF-CiG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="g3b-CS-d89"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xsJ-96-8bh">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="2KM-xD-VfA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="2Q5-oU-CK0">
+                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Test"/>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="설정" id="VMU-VG-Grb">
                             <connections>
                                 <segue destination="UdI-Os-pcz" kind="show" id="y2a-lS-o1r"/>
@@ -43,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="17" y="80"/>
+            <point key="canvasLocation" x="15.942028985507248" y="79.6875"/>
         </scene>
         <!--설정-->
         <scene sceneID="ptm-C5-80x">
@@ -196,7 +212,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Cju-9a-qcN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xws-1K-iZk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="hiT-CI-FGR" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hct-s3-HYv">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -206,6 +221,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Gdh-cZ-99F"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xws-1K-iZk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-858" y="80"/>
         </scene>
@@ -219,6 +235,9 @@
         <image name="yellow_circle" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
