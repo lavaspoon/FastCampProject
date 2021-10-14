@@ -16,6 +16,7 @@
 		9E6873932702E456002711CF /* FastCampProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6873922702E456002711CF /* FastCampProjectTests.swift */; };
 		9E68739D2702E456002711CF /* FastCampProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68739C2702E456002711CF /* FastCampProjectUITests.swift */; };
 		9E68739F2702E456002711CF /* FastCampProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68739E2702E456002711CF /* FastCampProjectUITestsLaunchTests.swift */; };
+		9EB6837127181C09000359CB /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB6837027181C09000359CB /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		9E6873982702E456002711CF /* FastCampProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastCampProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E68739C2702E456002711CF /* FastCampProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastCampProjectUITests.swift; sourceTree = "<group>"; };
 		9E68739E2702E456002711CF /* FastCampProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastCampProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9EB6837027181C09000359CB /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				9E6873842702E456002711CF /* Assets.xcassets */,
 				9E6873862702E456002711CF /* LaunchScreen.storyboard */,
 				9E6873892702E456002711CF /* Info.plist */,
+				9EB6837027181C09000359CB /* Task.swift */,
 			);
 			path = FastCampProject;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EB6837127181C09000359CB /* Task.swift in Sources */,
 				9E6873802702E450002711CF /* ViewController.swift in Sources */,
 				9E68737C2702E450002711CF /* AppDelegate.swift in Sources */,
 				9E68737E2702E450002711CF /* SceneDelegate.swift in Sources */,
