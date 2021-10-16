@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //dataSource 채택
         self.tableView.dataSource = self
         
     }
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
             
             guard let title = alert.textFields?[0].text else { return }
             let task = Task(title: title, done: false)
+            //tasks 배열에 할일이 추가 됨
             self?.tasks.append(task)
             self?.tableView.reloadData()
         })
@@ -43,12 +45,18 @@ class ViewController: UIViewController {
 }
 
 extension ViewController : UITableViewDataSource {
+    //UITableViewDataSource 프로토콜을 채택하면 아래의 두 메서드는 꼭 구현해야함
+    
+    //numberOfRowsInSection: 각 섹션에 표시할 행의 갯수를 묻는 메서드
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //배열의 갯수 반환
         return self.tasks.count
     }
-    
+    //cellForRowAt: 특정 섹션의 N번째 Row를 그리는데 필요한 셀을 반환하는 메서드
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //스토리보드에 정의한 셀을 가져옴
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        //배열에 저장된 할일 값을 가져옴
         let task = self.tasks[indexPath.row]
         cell.textLabel?.text = task.title
         return cell
