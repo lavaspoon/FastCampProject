@@ -11,13 +11,36 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     //0) Task 구조체 생성자 생성
-    var tasks = [Task]()
+    var tasks = [Task]() {
+        didSet {
+            self.saveTasks()
+        }
+    }
+    func saveTasks(){
+        let data = self.tasks.map {
+            [
+                "title": $0.title,
+                "done": $0.done
+            ]
+        }
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(data, forKey: "tasks")
+    }
+    func loadTasks(){
+        let userDefaults = UserDefaults.standard
+        guard let data = userDefaults.object(forKey: "tasks") as? [[String: Any]] else { return }
+        self.tasks = data.compactMap {
+            guard let title = $0["title"] as? String else { return nil }
+            guard let done = $0["done"] as? Bool else { return nil }
+            return Task(title: title, done: done)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //0) dataSource 채택
         self.tableView.dataSource = self
-        
+        self.loadTasks()
     }
     @IBAction func tapEditButton(_ sender: UIBarButtonItem) {
         //edit
