@@ -26,9 +26,14 @@ class ViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         userDefaults.set(data, forKey: "tasks")
     }
+    //뷰컨트롤러 로드 했을떄 함수 실행
     func loadTasks(){
         let userDefaults = UserDefaults.standard
+        //object 메서드가 반환하는 값이 String 이라고 지정해주는 타입캐스팅
+        //as? : 캐스팅 성공하면 옵셔널값 반환하고 실패 하면 nil 반환
         guard let data = userDefaults.object(forKey: "tasks") as? [[String: Any]] else { return }
+        //compactMap : 1차원 배열에서 nil 제거하고, 옵셔널 바인딩 할때 사용
+        //as? : 캐스팅 성공하면 옵셔널값 반환하고 실패 하면 nil 반환
         self.tasks = data.compactMap {
             guard let title = $0["title"] as? String else { return nil }
             guard let done = $0["done"] as? Bool else { return nil }
