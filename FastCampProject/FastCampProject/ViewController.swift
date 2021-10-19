@@ -81,6 +81,7 @@ class ViewController: UIViewController {
         self.tableView.dataSource = self
         //self.loadTasks()
         self.loadMessage()
+        print("loadMessage 실행됨")
     }
     @IBAction func tapEditButton(_ sender: UIBarButtonItem) {
         //edit
