@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
-struct Task {
-    var title : String
-    var done : Bool
+struct Message {
+    var name : String
+    var message : String
 }
