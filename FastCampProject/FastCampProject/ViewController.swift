@@ -143,7 +143,21 @@ extension ViewController : UITableViewDataSource {
             self.doneButtonTap()
         }
     }
-    
+    //특정 위치의 행을 재정렬 할 수 있는지 묻는 메서드
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    //행이 다른 위치로 이동되면 어디에서 어디로 이동했는지 알려주는 메서드
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        var forms  = self.forms
+        //선택한 데이터를 저장, sourceIndexPath.row : 이동할 셀 번호
+        let form = forms[sourceIndexPath.row]
+        forms.remove(at: sourceIndexPath.row)
+        //destinationIndexPath.row: 도착할 셀 위치
+        forms.insert(form, at: destinationIndexPath.row)
+        //배열 덮어쓰기
+        self.forms = forms
+    }
 }
 extension ViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
