@@ -11,4 +11,5 @@ import UIKit
 struct Message {
     var name : String
     var message : String
+    var done : Bool
 }
