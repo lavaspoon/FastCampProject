@@ -19,6 +19,7 @@
 		9ED3AD8B2721AFD4006AF8B8 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED3AD8A2721AFD4006AF8B8 /* DiaryCell.swift */; };
 		9ED3AD8D2721B0DF006AF8B8 /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED3AD8C2721B0DF006AF8B8 /* StarViewController.swift */; };
 		9ED3AD8F2721B3CB006AF8B8 /* StarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED3AD8E2721B3CB006AF8B8 /* StarCell.swift */; };
+		9ED3AD912721B710006AF8B8 /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED3AD902721B710006AF8B8 /* WriteDiaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		9ED3AD8A2721AFD4006AF8B8 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
 		9ED3AD8C2721B0DF006AF8B8 /* StarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
 		9ED3AD8E2721B3CB006AF8B8 /* StarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCell.swift; sourceTree = "<group>"; };
+		9ED3AD902721B710006AF8B8 /* WriteDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,8 @@
 		9E6873B6270C9427002711CF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9ED3AD8C2721B0DF006AF8B8 /* StarViewController.swift */,
+				9ED3AD902721B710006AF8B8 /* WriteDiaryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -154,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				9ED3AD8A2721AFD4006AF8B8 /* DiaryCell.swift */,
-				9ED3AD8C2721B0DF006AF8B8 /* StarViewController.swift */,
 				9ED3AD8E2721B3CB006AF8B8 /* StarCell.swift */,
 			);
 			path = View;
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E6873802702E450002711CF /* ViewController.swift in Sources */,
+				9ED3AD912721B710006AF8B8 /* WriteDiaryViewController.swift in Sources */,
 				9ED3AD8F2721B3CB006AF8B8 /* StarCell.swift in Sources */,
 				9E68737C2702E450002711CF /* AppDelegate.swift in Sources */,
 				9E68737E2702E450002711CF /* SceneDelegate.swift in Sources */,
