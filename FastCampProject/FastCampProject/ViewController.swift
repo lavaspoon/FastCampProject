@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
     //MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
