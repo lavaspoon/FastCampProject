@@ -40,24 +40,28 @@ class WriteDiaryViewController: UIViewController {
         //for: 어떤 이벤트가 일어났을때 액션에 정의한 메서드를 호출할 것인지 설정
         //결론 -> datePicker의 값이 바뀔때마다 datePickerValueDidChange메소드 실행
         self.datePicker.addTarget(self, action: #selector(datePickerValueDidChange(_:)), for: .valueChanged)
+        //DatePicker 언어 한국어로 변경
         self.datePicker.locale = Locale(identifier: "ko_KR")
-        //텍스트 필드 클릭시, 날짜가 뜨게함
+        //텍스트 필드 클릭시, 날짜가 선택창이 팝업되게함
         self.dateTextField.inputView = self.datePicker
     }
-    //UIDatePicker객체를 전달받아서 메서드 실행
+    //UIDatePicker객체를 전달받아서 메서드 실행 (값이 바뀔때 마다 실행되는 함수)
     @objc private func datePickerValueDidChange(_ datePicker: UIDatePicker) {
         //DateFormatter(): 날짜와 텍스트를 변환
         let formmater = DateFormatter()
+        
         formmater.dateFormat = "yyyy년 MM월 dd일(EEEEE)"
         formmater.locale = Locale(identifier: "ko_KR")
         //datePicker에서 선택한 date 값 저장
         self.diaryDate = datePicker.date
         //datePicker에서 선택한 date 값 저장
         self.dateTextField.text = formmater.string(from: datePicker.date)
-        
     }
     @IBAction func tapConfirmButton(_ sender: UIBarButtonItem) {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
