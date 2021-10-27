@@ -7,6 +7,11 @@
 
 import UIKit
 
+//delegate를 통해서 일기장리스트 화면에 일기가 작성된 '다이어리 객체'를 전달하기 위해
+protocol WriteDiaryViewDelegate : AnyObject { //AnyObject 상속
+    func didSeletRegister(diary: Diary) //파라미터에 Diary 객체가 전달되게함
+}
+
 class WriteDiaryViewController: UIViewController {
 
     @IBOutlet weak var dateTextField: UITextField!
@@ -17,6 +22,9 @@ class WriteDiaryViewController: UIViewController {
     private let datePicker = UIDatePicker()
     //DatePicker에서 선택된 데이터를 저장하는 프로퍼티
     private var diaryDate : Date?
+    
+    //delegate 프로퍼티 정의
+    weak var delegate : WriteDiaryViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,14 +70,25 @@ class WriteDiaryViewController: UIViewController {
         //날짜 변경할때마다 dateTextFieldDidChanged가 실행되게 해줌
         self.dateTextField.sendActions(for: .editingChanged)
     }
+    
+    //등록버튼을 누르면 다이어리 객체를 생성하고, delegate에 정의한 didSeletRegister() 메서드르 실행해서 파리미터에 생성한 다이어리 객체를 넘김
     @IBAction func tapConfirmButton(_ sender: UIBarButtonItem) {
+         //옵셔널 바인딩
+        guard let title = self.titleTextField.text else { return }
+        guard let contents = self.contentsTextView.text else { return }
+        guard let date = self.diaryDate else { return }
         
+        let diary = Diary(title: title, contents: contents, date: date, isStar: false)
+        //다이러리 객체 전달
+        self.delegate?.didSeletRegister(diary: diary)
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    //MARK: [등록버튼] 활성화/비활성화 기능 코드
+    
+//MARK: [등록버튼] 활성화/비활성화 기능 코드
     
     //[등록버튼] 텍스트필드의 모든 값이 채워졌을때 등록버튼이 눌리도록 설정
     private func configureInputField(){

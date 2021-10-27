@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E4AC638272902640077602D /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4AC637272902640077602D /* Diary.swift */; };
 		9E68737C2702E450002711CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68737B2702E450002711CF /* AppDelegate.swift */; };
 		9E68737E2702E450002711CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68737D2702E450002711CF /* SceneDelegate.swift */; };
 		9E6873802702E450002711CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E68737F2702E450002711CF /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E4AC637272902640077602D /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		9E6873782702E450002711CF /* FastCampProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastCampProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E68737B2702E450002711CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E68737D2702E450002711CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +116,6 @@
 				9E6873B6270C9427002711CF /* Controller */,
 				9E68737B2702E450002711CF /* AppDelegate.swift */,
 				9E68737D2702E450002711CF /* SceneDelegate.swift */,
-				9E68737F2702E450002711CF /* ViewController.swift */,
 				9E6873812702E450002711CF /* Main.storyboard */,
 				9E6873842702E456002711CF /* Assets.xcassets */,
 				9E6873862702E456002711CF /* LaunchScreen.storyboard */,
@@ -143,6 +144,7 @@
 		9E6873B6270C9427002711CF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9E68737F2702E450002711CF /* ViewController.swift */,
 				9ED3AD8C2721B0DF006AF8B8 /* StarViewController.swift */,
 				9ED3AD902721B710006AF8B8 /* WriteDiaryViewController.swift */,
 				9ED3AD922721B7AC006AF8B8 /* DiaryDetailViewController.swift */,
@@ -153,6 +155,7 @@
 		9E6873B7270C9435002711CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9E4AC637272902640077602D /* Diary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				9ED3AD8F2721B3CB006AF8B8 /* StarCell.swift in Sources */,
 				9E68737C2702E450002711CF /* AppDelegate.swift in Sources */,
 				9E68737E2702E450002711CF /* SceneDelegate.swift in Sources */,
+				9E4AC638272902640077602D /* Diary.swift in Sources */,
 				9ED3AD932721B7AC006AF8B8 /* DiaryDetailViewController.swift in Sources */,
 				9ED3AD8B2721AFD4006AF8B8 /* DiaryCell.swift in Sources */,
 				9ED3AD8D2721B0DF006AF8B8 /* StarViewController.swift in Sources */,
