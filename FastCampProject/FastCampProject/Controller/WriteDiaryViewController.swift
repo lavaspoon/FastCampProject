@@ -22,6 +22,27 @@ class WriteDiaryViewController: UIViewController {
         super.viewDidLoad()
         self.configureContentsTextView()
         self.configureDatePicker()
+        self.confirmButton.isEnabled = false
+        self.configureInputField()
+    }
+    //텍스트필드의 모든 값이 채워졌을때 등록버튼이 눌리도록 설정
+    private func configureInputField(){
+        self.contentsTextView.delegate = self
+        //텍스트뷰의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
+        self.titleTextField.addTarget(self, action: #selector(titleTextFieldDidChanged(_:)), for: .editingChanged)
+        //date필드의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
+        //문제점: 데이트피커는 키보드로 값을 입력하는것이 아니기 때문에 실행이안됨 datePickerValueDidChange() 참조
+        self.dateTextField.addTarget(self, action: #selector(dateTextFieldDidChanged(_:)), for: .editingChanged)
+    }
+    //텍스트필드의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
+    @objc private func titleTextFieldDidChanged(_ textField: UITextField){
+        print("타이틀 필드체크")
+        self.validateInputField()
+    }
+    //date필드의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
+    @objc private func dateTextFieldDidChanged(_ textField: UITextField){
+        print("데이트 필드체크")
+        self.validateInputField()
     }
     //contentsTextView의 border가 투명이기때문에 설정해줌
     private func configureContentsTextView(){
@@ -56,6 +77,8 @@ class WriteDiaryViewController: UIViewController {
         self.diaryDate = datePicker.date
         //datePicker에서 선택한 date 값 저장
         self.dateTextField.text = formmater.string(from: datePicker.date)
+        //날짜 변경할때마다 dateTextFieldDidChanged가 실행되게 해줌
+        self.dateTextField.sendActions(for: .editingChanged)
     }
     @IBAction func tapConfirmButton(_ sender: UIBarButtonItem) {
         
@@ -63,5 +86,18 @@ class WriteDiaryViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    //텍스트뷰의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
+    private func validateInputField() {
+        //텍스트필드와 텍스트뷰가 비어있지 않으면 버튼 활성화 -> 텍스트 필드는 옵셔널처리, 텍스트뷰는 옵셔널 처리안함
+        self.confirmButton.isEnabled = !(self.titleTextField.text?.isEmpty ?? true) && !(self.dateTextField.text?.isEmpty ?? true) && !self.contentsTextView.text.isEmpty
+    }
+}
+
+extension WriteDiaryViewController : UITextViewDelegate {
+//텍스트뷰의 텍스트가 입력될때 마다 호출되는 메서드
+    func textViewDidChange(_ textView: UITextView) {
+        print("내용 필드체크")
+        self.validateInputField()
     }
 }
