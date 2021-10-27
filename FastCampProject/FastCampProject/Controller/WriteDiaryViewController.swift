@@ -25,25 +25,7 @@ class WriteDiaryViewController: UIViewController {
         self.confirmButton.isEnabled = false
         self.configureInputField()
     }
-    //텍스트필드의 모든 값이 채워졌을때 등록버튼이 눌리도록 설정
-    private func configureInputField(){
-        self.contentsTextView.delegate = self
-        //텍스트뷰의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
-        self.titleTextField.addTarget(self, action: #selector(titleTextFieldDidChanged(_:)), for: .editingChanged)
-        //date필드의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
-        //문제점: 데이트피커는 키보드로 값을 입력하는것이 아니기 때문에 실행이안됨 datePickerValueDidChange() 참조
-        self.dateTextField.addTarget(self, action: #selector(dateTextFieldDidChanged(_:)), for: .editingChanged)
-    }
-    //텍스트필드의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
-    @objc private func titleTextFieldDidChanged(_ textField: UITextField){
-        print("타이틀 필드체크")
-        self.validateInputField()
-    }
-    //date필드의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
-    @objc private func dateTextFieldDidChanged(_ textField: UITextField){
-        print("데이트 필드체크")
-        self.validateInputField()
-    }
+    
     //contentsTextView의 border가 투명이기때문에 설정해줌
     private func configureContentsTextView(){
         let setColor = UIColor(red: 220/225, green: 220/225, blue: 220/225, alpha: 1.0)
@@ -87,13 +69,35 @@ class WriteDiaryViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    //텍스트뷰의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
+    //MARK: [등록버튼] 활성화/비활성화 기능 코드
+    
+    //[등록버튼] 텍스트필드의 모든 값이 채워졌을때 등록버튼이 눌리도록 설정
+    private func configureInputField(){
+        self.contentsTextView.delegate = self
+        //텍스트뷰의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
+        self.titleTextField.addTarget(self, action: #selector(titleTextFieldDidChanged(_:)), for: .editingChanged)
+        //date필드의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
+        //문제점: 데이트피커는 키보드로 값을 입력하는것이 아니기 때문에 실행이안됨 datePickerValueDidChange() 참조
+        self.dateTextField.addTarget(self, action: #selector(dateTextFieldDidChanged(_:)), for: .editingChanged)
+    }
+    //[등록버튼] 텍스트필드의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
+    @objc private func titleTextFieldDidChanged(_ textField: UITextField){
+        print("타이틀 필드체크")
+        self.validateInputField()
+    }
+    //[등록버튼] date필드의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
+    @objc private func dateTextFieldDidChanged(_ textField: UITextField){
+        print("데이트 필드체크")
+        self.validateInputField()
+    }
+    //[등록버튼] 텍스트뷰의 텍스트가 입력될때마다 등록버튼 활성화 여부를 판단하는 메서드
     private func validateInputField() {
         //텍스트필드와 텍스트뷰가 비어있지 않으면 버튼 활성화 -> 텍스트 필드는 옵셔널처리, 텍스트뷰는 옵셔널 처리안함
         self.confirmButton.isEnabled = !(self.titleTextField.text?.isEmpty ?? true) && !(self.dateTextField.text?.isEmpty ?? true) && !self.contentsTextView.text.isEmpty
     }
 }
 
+//[등록버튼]
 extension WriteDiaryViewController : UITextViewDelegate {
 //텍스트뷰의 텍스트가 입력될때 마다 호출되는 메서드
     func textViewDidChange(_ textView: UITextView) {
