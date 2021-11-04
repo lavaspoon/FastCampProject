@@ -35,6 +35,9 @@ class ViewController: UIViewController {
             //Diary 타입이 되도록 인스턴스화
             return Diary(title: title, contents: contents, date: date, isStar: isStar)
         }
+        self.diaryList = self.diaryList.sorted(by: {
+            $0.date.compare($1.date) == .orderedDescending
+        })
     }
 
 //MARK: [collection]뷰 속성 정의
@@ -57,7 +60,7 @@ class ViewController: UIViewController {
     }
     private func dateToString(date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yy년 MM월 DD일(EEEEE)"
+        formatter.dateFormat = "yy년 MM월 dd일(EEEEE)"
         formatter.locale = Locale(identifier: "ko_KR")
         return formatter.string(from: date)
     }
@@ -71,7 +74,6 @@ class ViewController: UIViewController {
                 "isStar" : $0.isStar
             ]
         }
-        
         let UD = UserDefaults.standard
         UD.set(date, forKey: "diaryList")
     }
@@ -81,8 +83,11 @@ extension ViewController : WriteDiaryViewDelegate {
     //Diary 객체 수신
     func didSeletRegister(diary: Diary) {
         self.diaryList.append(diary)
+        //배열에 추가된 후, 날짜별로 정리
+        self.diaryList = self.diaryList.sorted(by: {
+            $0.date.compare($1.date) == .orderedDescending
+        })
         self.collectionView.reloadData()
-
     }
 }
 //[collection]뷰 속성 정의
