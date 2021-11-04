@@ -70,7 +70,10 @@ class WriteDiaryViewController: UIViewController {
         //날짜 변경할때마다 dateTextFieldDidChanged가 실행되게 해줌
         self.dateTextField.sendActions(for: .editingChanged)
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+//MARK: [Delegate 패턴] 뷰컨트롤러로 diary 객체 전달
     //등록버튼을 누르면 다이어리 객체를 생성하고, delegate에 정의한 didSeletRegister() 메서드르 실행해서 파리미터에 생성한 다이어리 객체를 넘김
     @IBAction func tapConfirmButton(_ sender: UIBarButtonItem) {
          //옵셔널 바인딩
@@ -84,9 +87,7 @@ class WriteDiaryViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+    
     
 //MARK: [등록버튼] 활성화/비활성화 기능 코드
     

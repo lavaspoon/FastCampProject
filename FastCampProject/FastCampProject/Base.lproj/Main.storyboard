@@ -280,7 +280,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="180" height="200"/>
                                         <connections>
-                                            <outlet property="dataLabel" destination="4dB-VW-BUE" id="oYx-Te-Zho"/>
+                                            <outlet property="dateLabel" destination="4dB-VW-BUE" id="jHP-uN-4YI"/>
                                             <outlet property="titleLabel" destination="uc6-Fw-D47" id="oDz-Sa-xf8"/>
                                         </connections>
                                     </collectionViewCell>
