@@ -110,3 +110,30 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
         return CGSize(width: (UIScreen.main.bounds.width / 2) - 20, height: 200)
     }
 }
+
+//MARK: [디테일뷰] 데이터 전달하기 위해 delegate 선언
+extension ViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //스토리보드에 있는 뷰 컨트롤러 인스턴스화, 타입캐스팅
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DiaryDetailViewController") as? DiaryDetailViewController else { return }
+        //선택한 셀의 값을 diary 변수에 저장
+        let diary = self.diaryList[indexPath.row]
+        //데이터 전달
+        viewController.diary = diary
+        viewController.indexPath = indexPath
+        //삭제를 위한 델리게이트
+        viewController.delegate = self
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+//MARK: [디테일뷰] 삭제
+extension ViewController : DiaryDetailViewDelegate {
+    func didSelectedDelete(indexPath: IndexPath) {
+        //전달받은 indexPath.row 값을 배열에서 삭제
+        self.diaryList.remove(at: indexPath.row)
+        //컬렉션 뷰의 인덱스 삭제
+        self.collectionView.deleteItems(at: [indexPath])
+    }
+}

@@ -134,7 +134,7 @@
         <!--Diary Detail View Controller-->
         <scene sceneID="4WW-QE-9eH">
             <objects>
-                <viewController id="wDF-c5-Ria" customClass="DiaryDetailViewController" customModule="FastCampProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiaryDetailViewController" id="wDF-c5-Ria" customClass="DiaryDetailViewController" customModule="FastCampProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QLI-vf-Bh5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,12 +196,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="48.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="수정"/>
+                                        <connections>
+                                            <action selector="tapEditButton:" destination="wDF-c5-Ria" eventType="touchUpInside" id="0zD-9L-7h6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsz-b0-0kE">
                                         <rect key="frame" x="98.5" y="0.0" width="48.5" height="31"/>
                                         <color key="tintColor" systemColor="systemRedColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="삭제"/>
+                                        <connections>
+                                            <action selector="tapDeleteButton:" destination="wDF-c5-Ria" eventType="touchUpInside" id="cMq-kk-fN5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -225,6 +231,11 @@
                             <constraint firstItem="ocm-jF-qLv" firstAttribute="trailing" secondItem="ezW-kb-yGs" secondAttribute="trailing" constant="24" id="yC9-R4-3Pv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentsTextView" destination="2AZ-3Z-fOF" id="g6b-C4-OYJ"/>
+                        <outlet property="dateLabel" destination="Ldo-pL-l6X" id="5hf-Gc-zZI"/>
+                        <outlet property="titleLabel" destination="PLv-Bl-64e" id="vzN-zy-qeC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRZ-AM-OBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
