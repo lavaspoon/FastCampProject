@@ -45,7 +45,14 @@ class DiaryDetailViewController: UIViewController {
     }
     
     @IBAction func tapEditButton(_ sender: UIButton) {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "WriteDiaryViewController") as? WriteDiaryViewController else { return }
         
+        //수정모드 데이터 전달
+        guard let indexPath = self.indexPath else { return }
+        guard let diary = self.diary else { return }
+        viewController.diaryEditorMode = .edit(indexPath, diary)
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     @IBAction func tapDeleteButton(_ sender: UIButton) {
         //전달받은 indexPath값 옵셔널 바인딩

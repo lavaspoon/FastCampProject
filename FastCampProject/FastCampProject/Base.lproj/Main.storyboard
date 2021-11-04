@@ -325,7 +325,7 @@
         <!--일기 작성-->
         <scene sceneID="uWx-RF-3t3">
             <objects>
-                <viewController id="cMw-sY-P70" customClass="WriteDiaryViewController" customModule="FastCampProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteDiaryViewController" id="cMw-sY-P70" customClass="WriteDiaryViewController" customModule="FastCampProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zCU-dP-YXJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

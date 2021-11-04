@@ -7,6 +7,12 @@
 
 import UIKit
 
+//수정 버튼 클릭 시, 받을 데이터 열거형으로 선언
+enum DiaryEditorMode {
+    case new
+    case edit(IndexPath, Diary)
+}
+
 //delegate를 통해서 일기장리스트 화면에 일기가 작성된 '다이어리 객체'를 전달하기 위해
 protocol WriteDiaryViewDelegate : AnyObject { //AnyObject 상속
     func didSeletRegister(diary: Diary) //파라미터에 Diary 객체가 전달되게함
@@ -26,12 +32,15 @@ class WriteDiaryViewController: UIViewController {
     //delegate 프로퍼티 정의
     weak var delegate : WriteDiaryViewDelegate?
     
+    var diaryEditorMode : DiaryEditorMode = .new
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureContentsTextView()
         self.configureDatePicker()
         self.confirmButton.isEnabled = false
         self.configureInputField()
+        self.configureEditorMode()
     }
     
     //contentsTextView의 border가 투명이기때문에 설정해줌
@@ -56,6 +65,27 @@ class WriteDiaryViewController: UIViewController {
         //텍스트 필드 클릭시, 날짜가 선택창이 팝업되게함
         self.dateTextField.inputView = self.datePicker
     }
+//MARK: 모드 판단 함수
+    private func configureEditorMode(){
+        switch self.diaryEditorMode {
+            case let .edit(_, diary):
+                self.titleTextField.text = diary.title
+                self.contentsTextView.text = diary.contents
+                self.dateTextField.text = dateToString(date: diary.date)
+                self.diaryDate = diary.date
+                self.confirmButton.title = "수정"
+        default:
+            break
+        }
+    }
+    private func dateToString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yy년 MM월 dd일(EEEEE)"
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter.string(from: date)
+    }
+    
+    
     //UIDatePicker객체를 전달받아서 메서드 실행 (값이 바뀔때 마다 실행되는 함수)
     @objc private func datePickerValueDidChange(_ datePicker: UIDatePicker) {
         //DateFormatter(): 날짜와 텍스트를 변환
