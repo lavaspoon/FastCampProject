@@ -20,8 +20,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.configureCollectionView()
         self.loadDiaryList()
+        
+//MARK: NOTIFICATION CENTER
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(editDiaryNotification(_ :)),
+            name: NSNotification.Name("editDiary"),
+            object: nil
+        )
     }
-    
+    @objc func editDiaryNotification(_ notification: Notification){
+        //전달받은 다이어리 객체를 저장
+        guard let diary = notification.object as? Diary else { return }
+        //indexPath row 값을 가져옴
+        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
+        //수정된 다이어리 객체로 저장
+        self.diaryList[row] = diary
+        //날짜가 수정된 경우를 대비
+        self.diaryList = self.diaryList.sorted(by: {
+            $0.date.compare($1.date) == .orderedDescending
+        })
+        self.collectionView.reloadData()
+    }
 //MARK: UD값을 가져옴
     private func loadDiaryList() {
         let UD = UserDefaults.standard
