@@ -29,6 +29,18 @@ class DiaryDetailViewController: UIViewController {
         self.configureView()
     }
     
+//MARK: 옵저빙할때 실행될 메서드, 파라미터는 Notification 객체 전달
+    @objc func editDiaryNotification(_ notification: Notification){
+        print("수정버튼누름")
+        guard let diary = notification.object as? Diary else { return }
+        print(diary)
+        guard let row = notification.userInfo?["indexPath.row"] as? Int else { return }
+        print(row)
+        
+        self.diary = diary
+        self.configureView()
+        
+    }
 //MARK: [뷰컨트롤러 델리게이트] 전달받은 diary 객체를 뷰에 초기화
     private func configureView() {
         guard let diary = self.diary else { return }
@@ -52,6 +64,12 @@ class DiaryDetailViewController: UIViewController {
         guard let diary = self.diary else { return }
         viewController.diaryEditorMode = .edit(indexPath, diary)
         
+//MARK: NOTIFICATION 옵저빙
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(editDiaryNotification(_:)),
+                                               name: NSNotification.Name("editDiary"),
+                                               object: nil
+        )
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     @IBAction func tapDeleteButton(_ sender: UIButton) {
@@ -60,6 +78,12 @@ class DiaryDetailViewController: UIViewController {
         //indexPath 델리게이트에 전달
         self.delegate?.didSelectedDelete(indexPath: indexPath)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+//MARK: 인스턴스가 DINIT 될때
+    deinit {
+        //옵저버가 모두 제가 되게 
+        NotificationCenter.default.removeObserver(self)
     }
     
 }

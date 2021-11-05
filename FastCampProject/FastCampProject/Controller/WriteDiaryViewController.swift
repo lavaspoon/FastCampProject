@@ -110,10 +110,23 @@ class WriteDiaryViewController: UIViewController {
         guard let title = self.titleTextField.text else { return }
         guard let contents = self.contentsTextView.text else { return }
         guard let date = self.diaryDate else { return }
-        
         let diary = Diary(title: title, contents: contents, date: date, isStar: false)
-        //다이러리 객체 전달
-        self.delegate?.didSeletRegister(diary: diary)
+//MARK: NOTIFICATION CENTER
+        //edit 모드 일때 (노티피케이션 관리)
+        switch self.diaryEditorMode {
+        case .new:
+            //다이러리 객체 전달
+            self.delegate?.didSeletRegister(diary: diary)
+        //수정버튼을 눌렀을때, NotificationCenter가 "editDiary"라는 Notification Key를 옵저빙하는곳에 수정된 다이어리 객체를 전달
+        case let .edit(indxPath, _):
+            NotificationCenter.default.post(
+                name: NSNotification.Name("editDiary"),
+                object: diary,
+                userInfo: [
+                    "indexPath.row" : indxPath.row
+                ]
+            )
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
